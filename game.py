@@ -8,6 +8,12 @@ class Game(QMainWindow, Gui):
 	current_row = 0
 	guess_array = []
 	flags = [False, False, False, False, False]
+	green = QPalette()
+	yellow = QPalette()
+	gray = QPalette()
+	green.setColor(green.Base, QColor(38, 230, 0))
+	yellow.setColor(yellow.Base, QColor(255, 230, 102))
+	gray.setColor(gray.Base, QColor(232, 232, 232))
 
 	def create_guess_array(self):
 		array = []
@@ -29,32 +35,47 @@ class Game(QMainWindow, Gui):
 			for i in range(len(word)):
 				if c == word[i] and pos != i and self.flags[i] == False:
 					return True
-				"""
-				elif c == word[i] and flags[i] == True:
-					return False
-				"""
+				
 		return False					
 
 	def check_row(self):
 		# placeholder word
+		was_empty = False
 		word = "crane"
+		#res = ""
+		self.flags = [False, False, False, False, False]
 		r = self.guess_array[self.current_row]
 		for i in range(len(r)):
 			letter = r[i].text()	
 			if letter == word[i]:
 				print(f'Letter {letter} correct')
 				self.flags[i] = True
+				r[i].setPalette(self.green)
 			elif self.is_in_word(letter, i, word) == True:
-				print(f'{letter} is somewhere else')
+				print(f'{letter} is somewhere else')	
+				r[i].setPalette(self.yellow)
+				self.flags[i] = False
 			elif letter == '':
 				print('Error - blank input')
-				break
+				was_empty = True
 			else:
 				print(f'{letter} not in word')
-		print(self.flags)
+				r[i].setPalette(self.gray)
+				self.flags[i] = False
+
+		# if all flags are set to true, then the game is over
+		if False not in self.flags:
+			print("You won, game over")
+			sys.exit(0)
+		elif self.current_row == 5:
+			print("You lost")
+			sys.exit(0)
+		else:
+			if was_empty == False:
+				self.current_row += 1
+				for element in r:
+					element.setEnabled(False)
 		
-		self.current_row += 1
-		print()
 		
 
 
