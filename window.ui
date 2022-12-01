@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>900</height>
+    <width>700</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1000</width>
-    <height>900</height>
+    <width>700</width>
+    <height>600</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1000</width>
-    <height>900</height>
+    <width>700</width>
+    <height>600</height>
    </size>
   </property>
   <property name="palette">
@@ -37,9 +37,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>66</red>
-        <green>66</green>
-        <blue>66</blue>
+        <red>173</red>
+        <green>173</green>
+        <blue>173</blue>
        </color>
       </brush>
      </colorrole>
@@ -57,9 +57,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>66</red>
-        <green>66</green>
-        <blue>66</blue>
+        <red>173</red>
+        <green>173</green>
+        <blue>173</blue>
        </color>
       </brush>
      </colorrole>
@@ -68,18 +68,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>66</red>
-        <green>66</green>
-        <blue>66</blue>
+        <red>173</red>
+        <green>173</green>
+        <blue>173</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>66</red>
-        <green>66</green>
-        <blue>66</blue>
+        <red>173</red>
+        <green>173</green>
+        <blue>173</blue>
        </color>
       </brush>
      </colorrole>
@@ -88,11 +88,11 @@
   </property>
   <property name="font">
    <font>
-    <pointsize>25</pointsize>
+    <pointsize>9</pointsize>
    </font>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Wordle</string>
   </property>
   <property name="windowOpacity">
    <double>7.000000000000000</double>
@@ -104,377 +104,602 @@
    <set>Qt::ImhPreferUppercase|Qt::ImhUppercaseOnly</set>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="horizontalLayoutWidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>170</x>
       <y>10</y>
       <width>421</width>
-      <height>91</height>
+      <height>371</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="guess_1">
+    <layout class="QVBoxLayout" name="guesses">
      <item>
-      <widget class="QLineEdit" name="g1b_1">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="gs_1">
+       <item>
+        <widget class="QLineEdit" name="in_1">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+         <property name="readOnly">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_2">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_3">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_4">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_5">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QLineEdit" name="g1b_2">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="gs_2">
+       <item>
+        <widget class="QLineEdit" name="in_6">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_7">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_8">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_9">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_10">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QLineEdit" name="g1b_3">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="gs_3">
+       <item>
+        <widget class="QLineEdit" name="in_11">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_12">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_13">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_14">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_15">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QLineEdit" name="g1b_4">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="gs_4">
+       <item>
+        <widget class="QLineEdit" name="in_16">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_17">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_18">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_19">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_20">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
-      <widget class="QLineEdit" name="g1b_5">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
+      <layout class="QHBoxLayout" name="gs_5">
+       <item>
+        <widget class="QLineEdit" name="in_21">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_22">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_23">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_24">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_25">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="gs_6">
+       <item>
+        <widget class="QLineEdit" name="in_26">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_27">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_28">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_29">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="in_30">
+         <property name="font">
+          <font>
+           <pointsize>25</pointsize>
+          </font>
+         </property>
+         <property name="inputMethodHints">
+          <set>Qt::ImhUppercaseOnly</set>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_2">
+   <widget class="QPushButton" name="submit">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>120</y>
-      <width>421</width>
-      <height>81</height>
+      <x>540</x>
+      <y>460</y>
+      <width>121</width>
+      <height>41</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="guess_2">
-     <item>
-      <widget class="QLineEdit" name="g1b_6">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_7">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_8">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_9">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_10">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_3">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>220</y>
-      <width>421</width>
-      <height>81</height>
-     </rect>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+     </font>
     </property>
-    <layout class="QHBoxLayout" name="guess_3">
-     <item>
-      <widget class="QLineEdit" name="g1b_11">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_12">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_13">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_14">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_15">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_4">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>320</y>
-      <width>421</width>
-      <height>81</height>
-     </rect>
+    <property name="text">
+     <string>Enter</string>
     </property>
-    <layout class="QHBoxLayout" name="guess_4">
-     <item>
-      <widget class="QLineEdit" name="g1b_16">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_17">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_18">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_19">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_20">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_5">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>420</y>
-      <width>421</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="guess_5">
-     <item>
-      <widget class="QLineEdit" name="g1b_21">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_22">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_23">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_24">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_25">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_6">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>520</y>
-      <width>421</width>
-      <height>81</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="guess_6">
-     <item>
-      <widget class="QLineEdit" name="g1b_26">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_27">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_28">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_29">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="g1b_30">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>1</number>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -482,8 +707,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1000</width>
-     <height>44</height>
+     <width>700</width>
+     <height>20</height>
     </rect>
    </property>
   </widget>
