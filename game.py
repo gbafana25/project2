@@ -27,8 +27,16 @@ class Game(QMainWindow, Gui):
 		return array
 	
 	def disable_row(self, row):
-		for line in guess_array[row]:
+		for line in row:
 			line.setEnabled(False)	
+
+	def enable_row(self, row):
+		for line in row:
+			line.setEnabled(True)
+
+	def start_game(self, g):
+		for i in range(1, len(g)):
+			self.disable_row(g[i])
 
 	def is_in_word(self, c, pos, word):
 		if c in word:
@@ -38,26 +46,39 @@ class Game(QMainWindow, Gui):
 				
 		return False					
 
+	def check_empty(self, row):
+		word = ""
+		for i in row:
+			word += i.text()	
+		if len(word) == 5:
+			return True
+		return False
+
 	def check_row(self):
 		# placeholder word
 		was_empty = False
 		word = "crane"
-		#res = ""
 		self.flags = [False, False, False, False, False]
 		r = self.guess_array[self.current_row]
+		if self.check_empty(r) == False:
+			print("Error - some input left blank")
+			return 0
+
+
 		for i in range(len(r)):
 			letter = r[i].text()	
-			if letter == word[i]:
+			if letter == '':
+				print('Error - blank input')
+				was_empty = True
+				break
+			elif letter == word[i]:
 				print(f'Letter {letter} correct')
 				self.flags[i] = True
 				r[i].setPalette(self.green)
 			elif self.is_in_word(letter, i, word) == True:
 				print(f'{letter} is somewhere else')	
 				r[i].setPalette(self.yellow)
-				self.flags[i] = False
-			elif letter == '':
-				print('Error - blank input')
-				was_empty = True
+				self.flags[i] = False	
 			else:
 				print(f'{letter} not in word')
 				r[i].setPalette(self.gray)
@@ -75,6 +96,7 @@ class Game(QMainWindow, Gui):
 				self.current_row += 1
 				for element in r:
 					element.setEnabled(False)
+				self.enable_row(self.guess_array[self.current_row])
 		
 		
 
@@ -84,4 +106,4 @@ class Game(QMainWindow, Gui):
 		self.load()
 		self.guess_array = self.create_guess_array()
 		self.submit.clicked.connect(self.check_row)
-		#self.disable_row(guesses, 1)
+		self.start_game(self.guess_array)
