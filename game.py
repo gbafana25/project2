@@ -14,6 +14,7 @@ class Game(QMainWindow, Gui):
 
 	current_row = 0
 	guess_array = []
+	wrong = []
 	flags = [False, False, False, False, False]
 	green = QPalette()
 	yellow = QPalette()
@@ -42,6 +43,10 @@ class Game(QMainWindow, Gui):
 		for line in row:
 			line.setEnabled(True)
 
+	def read_only_row(self, row):
+		for line in row:
+			line.setReadOnly(True)
+
 	def start_game(self, g):
 		for i in range(1, len(g)):
 			self.disable_row(g[i])
@@ -63,6 +68,16 @@ class Game(QMainWindow, Gui):
 			return True
 		return False
 
+
+	def display_wrong(self, l):
+		wr = ""
+		if l not in self.wrong:
+			self.wrong.append(l)
+		for w in self.wrong:
+			wr += w
+			wr += " "
+		self.wrong_letters.setText(wr)
+
 	def check_row(self):
 		# placeholder word
 		was_empty = False
@@ -76,30 +91,34 @@ class Game(QMainWindow, Gui):
 		for i in range(len(r)):
 			letter = r[i].text()	
 			if letter == '':
-				print('Error - blank input')
+				#print('Error - blank input')
 				was_empty = True
 				break
 			elif letter == self.rand_word[i]:
-				print(f'Letter {letter} correct')
+				#print(f'Letter {letter} correct')
 				self.flags[i] = True
 				r[i].setPalette(self.green)
 			elif self.is_in_word(letter, i, self.rand_word) == True:
-				print(f'{letter} is somewhere else')	
+				#print(f'{letter} is somewhere else')	
 				r[i].setPalette(self.yellow)
 				self.flags[i] = False	
 			else:
-				print(f'{letter} not in word')
+				#print(f'{letter} not in word')
+				self.display_wrong(letter)
 				r[i].setPalette(self.gray)
 				self.flags[i] = False
 
 		# if all flags are set to true, then the game is over
 		if False not in self.flags:
-			print("You won, game over")
-			sys.exit(0)
+			self.id.setText("")
+			self.wrong_letters.setText("You won")
+			self.read_only_row(self.guess_array[5])
+			#sys.exit(0)
 		elif self.current_row == 5:
-			print("You lost")
-			print(self.rand_word)
-			sys.exit(0)
+			self.id.setText("Answer:")
+			self.wrong_letters.setText(self.rand_word)
+			self.read_only_row(self.guess_array[5])
+			#sys.exit(0)
 		else:
 			if was_empty == False:
 				self.current_row += 1
