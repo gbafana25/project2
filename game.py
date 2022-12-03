@@ -3,8 +3,15 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import * 
 from PyQt5.QtGui import *
 import sys
+import random
 
 class Game(QMainWindow, Gui):
+
+	def get_random_word():
+		f = open("wordlist", "r")
+		words = f.read().splitlines()
+		return words[random.randint(0, 2309)]
+
 	current_row = 0
 	guess_array = []
 	flags = [False, False, False, False, False]
@@ -14,6 +21,7 @@ class Game(QMainWindow, Gui):
 	green.setColor(green.Base, QColor(38, 230, 0))
 	yellow.setColor(yellow.Base, QColor(255, 230, 102))
 	gray.setColor(gray.Base, QColor(232, 232, 232))
+	rand_word = get_random_word()
 
 	def create_guess_array(self):
 		array = []
@@ -38,6 +46,7 @@ class Game(QMainWindow, Gui):
 		for i in range(1, len(g)):
 			self.disable_row(g[i])
 
+
 	def is_in_word(self, c, pos, word):
 		if c in word:
 			for i in range(len(word)):
@@ -57,7 +66,6 @@ class Game(QMainWindow, Gui):
 	def check_row(self):
 		# placeholder word
 		was_empty = False
-		word = "crane"
 		self.flags = [False, False, False, False, False]
 		r = self.guess_array[self.current_row]
 		if self.check_empty(r) == False:
@@ -71,11 +79,11 @@ class Game(QMainWindow, Gui):
 				print('Error - blank input')
 				was_empty = True
 				break
-			elif letter == word[i]:
+			elif letter == self.rand_word[i]:
 				print(f'Letter {letter} correct')
 				self.flags[i] = True
 				r[i].setPalette(self.green)
-			elif self.is_in_word(letter, i, word) == True:
+			elif self.is_in_word(letter, i, self.rand_word) == True:
 				print(f'{letter} is somewhere else')	
 				r[i].setPalette(self.yellow)
 				self.flags[i] = False	
@@ -90,6 +98,7 @@ class Game(QMainWindow, Gui):
 			sys.exit(0)
 		elif self.current_row == 5:
 			print("You lost")
+			print(self.rand_word)
 			sys.exit(0)
 		else:
 			if was_empty == False:
