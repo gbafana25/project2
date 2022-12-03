@@ -52,6 +52,7 @@ class Game(QMainWindow, Gui):
 			self.disable_row(g[i])
 
 
+	"""
 	def is_in_word(self, c, pos, word):
 		if c in word:
 			for i in range(len(word)):
@@ -59,6 +60,13 @@ class Game(QMainWindow, Gui):
 					return True
 				
 		return False					
+	"""
+	def is_in_word(self, c, pos, word):
+		for i in range(len(word)):
+			if c == word[i] and pos != i and self.flags[i] == False:
+				return True
+				
+		return False
 
 	def check_empty(self, row):
 		word = ""
@@ -91,19 +99,15 @@ class Game(QMainWindow, Gui):
 		for i in range(len(r)):
 			letter = r[i].text()	
 			if letter == '':
-				#print('Error - blank input')
 				was_empty = True
 				break
 			elif letter == self.rand_word[i]:
-				#print(f'Letter {letter} correct')
 				self.flags[i] = True
 				r[i].setPalette(self.green)
 			elif self.is_in_word(letter, i, self.rand_word) == True:
-				#print(f'{letter} is somewhere else')	
 				r[i].setPalette(self.yellow)
 				self.flags[i] = False	
 			else:
-				#print(f'{letter} not in word')
 				self.display_wrong(letter)
 				r[i].setPalette(self.gray)
 				self.flags[i] = False
@@ -117,7 +121,7 @@ class Game(QMainWindow, Gui):
 		elif self.current_row == 5:
 			self.id.setText("Answer:")
 			self.wrong_letters.setText(self.rand_word)
-			self.read_only_row(self.guess_array[5])
+			self.disable_row(self.guess_array[5])
 			#sys.exit(0)
 		else:
 			if was_empty == False:
