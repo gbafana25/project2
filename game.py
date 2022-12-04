@@ -52,19 +52,13 @@ class Game(QMainWindow, Gui):
 			self.disable_row(g[i])
 
 
-	"""
-	def is_in_word(self, c, pos, word):
-		if c in word:
-			for i in range(len(word)):
-				if c == word[i] and pos != i and self.flags[i] == False:
+	
+	def is_in_word(self, c, pos, word, guess):
+		for i in range(len(word)):
+			if c == word[i] and pos != i:
+				if self.flags[i] == False and c not in guess[pos+1:]: 
 					return True
 				
-		return False					
-	"""
-	def is_in_word(self, c, pos, word):
-		for i in range(len(word)):
-			if c == word[i] and pos != i and self.flags[i] == False:
-				return True
 				
 		return False
 
@@ -87,28 +81,29 @@ class Game(QMainWindow, Gui):
 		self.wrong_letters.setText(wr)
 
 	def check_row(self):
-		# placeholder word
 		was_empty = False
+		guessed = ""
 		self.flags = [False, False, False, False, False]
 		r = self.guess_array[self.current_row]
 		if self.check_empty(r) == False:
-			print("Error - some input left blank")
+			self.id.setText("ERROR - blank input")
 			return 0
 
-
 		for i in range(len(r)):
-			letter = r[i].text()	
-			if letter == '':
+			guessed += r[i].text()
+
+		for i in range(len(guessed)):
+			if guessed[i] == '':
 				was_empty = True
 				break
-			elif letter == self.rand_word[i]:
+			elif guessed[i] == self.rand_word[i]:
 				self.flags[i] = True
 				r[i].setPalette(self.green)
-			elif self.is_in_word(letter, i, self.rand_word) == True:
+			elif self.is_in_word(guessed[i], i, self.rand_word, guessed) == True:
 				r[i].setPalette(self.yellow)
 				self.flags[i] = False	
 			else:
-				self.display_wrong(letter)
+				self.display_wrong(guessed[i])
 				r[i].setPalette(self.gray)
 				self.flags[i] = False
 
@@ -116,13 +111,11 @@ class Game(QMainWindow, Gui):
 		if False not in self.flags:
 			self.id.setText("")
 			self.wrong_letters.setText("You won")
-			self.read_only_row(self.guess_array[5])
-			#sys.exit(0)
+			self.read_only_row(self.guess_array[self.current_row])
 		elif self.current_row == 5:
 			self.id.setText("Answer:")
 			self.wrong_letters.setText(self.rand_word)
 			self.disable_row(self.guess_array[5])
-			#sys.exit(0)
 		else:
 			if was_empty == False:
 				self.current_row += 1

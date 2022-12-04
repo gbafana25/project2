@@ -746,8 +746,8 @@
      <rect>
       <x>10</x>
       <y>460</y>
-      <width>364</width>
-      <height>80</height>
+      <width>511</width>
+      <height>81</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout">
@@ -755,7 +755,7 @@
       <widget class="QLabel" name="id">
        <property name="font">
         <font>
-         <pointsize>16</pointsize>
+         <pointsize>14</pointsize>
         </font>
        </property>
        <property name="text">
