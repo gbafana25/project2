@@ -5,6 +5,9 @@ from PyQt5.QtGui import *
 import sys
 import random
 
+QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_EnableHighDpiScaling, True)
+QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
+
 class Game(QMainWindow, Gui):
 
 	def get_random_word():
