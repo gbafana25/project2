@@ -764,7 +764,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="wrong_letters">
+      <widget class="QLabel" name="wrong_label">
        <property name="font">
         <font>
          <pointsize>16</pointsize>

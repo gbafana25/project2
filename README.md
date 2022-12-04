@@ -3,7 +3,3 @@ Wordle game with python 3 and pyqt5
 
 Wordlist source: https://gist.github.com/cfreshman/a7b776506c73284511034e63af1017ee
 
-# TODO:
-- add comments/docstrings
-- type hinting
-- better variable names

@@ -5,7 +5,10 @@ from PyQt5.QtGui import *
 import sys
 
 class Gui(object):
-	def load(self):
+	"""
+	Loads all graphical elements from .ui file
+	"""
+	def load(self) -> None:	
 		super(Gui, self).__init__()
 		uic.loadUi("window.ui", self)
 		self.show()
